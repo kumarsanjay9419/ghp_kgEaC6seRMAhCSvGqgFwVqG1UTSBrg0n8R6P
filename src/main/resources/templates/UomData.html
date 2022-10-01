@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+        
+</head>
+<body>
+
+
+   <div class="container">
+   <div class="card">
+   
+    <div class="card-header bg-primary text-white text-center">
+      <h3>Uom Data Page!</h3>
+    </div> <!-- card-header end -->
+    
+     <div class="card-body"> 
+    
+    <table class="table table-hover">
+	<tr class="bg-info text-white">
+	<th>Id</th>
+	<th>TYPE</th>
+	<th>MODEL</th>
+	<th>DESCRIPTION</th>
+	<th>OPERATIONS</th>
+	</tr>
+	
+	  <tr th:each="ob:${list}">
+	  <td th:text="${ob.id}"></td>
+	  <td th:text="${ob.uomType}"></td>
+	  <td th:text="${ob.uomModel}"></td>
+	  <td th:text="${ob.uomDesc}"></td>
+	  
+	  <td>
+	  <a th:href="@{/uom/delete(id=${ob.id})}" class="btn btn-danger">DELETE</a>|
+	  <a th:href="@{/uom/edit(id=${ob.id})}" class="btn btn-success">EDIT</a>
+	  </td>
+	  </tr>
+	
+	</table>   
+    </div>
+     <!-- card-body end -->
+    <div class="card-footer bg-success text-white text-center" th:if="${message!=null}">
+    <span th:text="${message}"> </span>
+    </div> <!-- card-footer end -->
+    </div>  <!-- card end -->
+        
+   </div>  
+     <!-- container end -->
+	
+</body>
+</html>

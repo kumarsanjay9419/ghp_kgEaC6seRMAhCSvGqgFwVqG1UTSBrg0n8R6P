@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Uom Register</title>
+
+       <!-- for css bootstrap link -->
+       <link rel="stylesheet" href=
+       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+       <!-- jQuery  -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body style="background:#e2e2e2 ;">
+      <div class="container">
+             <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                           <h3>WELCOME TO UOM REGISTER PAGE!</h3>
+                    </div>  <!-- card-header  end -->
+                    <div class="card-body">
+                <form  id="uomForm"  th:action="@{/uom/save}" method="POST">
+                           <!-- row#1 -->
+                           <div class="row">
+                                  <div class="col-3">
+                                         <label>Uom Type</label>
+                                  </div>
+                                  <div class="col-4">
+           <select id="uomType" name="uomType" class="form-control"> 
+                  <option value="">-select-</option>
+                  <option value="PACKING">PACKING</option>
+                  <option value="NO PACKING">NO PACKING</option>
+                  <option value="-NA-">-NA-</option>
+           </select>                             
+                                  </div>
+                                  <div class="col-5">
+                                         <span id="uomTypeError"></span>
+                                  </div>
+                           </div>
+                           <br>
+
+                   <!-- row#2 -->
+                   <div class="row">
+                     <div class="col-3">
+                            <label>Uom Model</label>
+                     </div>
+                     <div class="col-4">
+   <input type="text" id="uomModel" name="uomModel" class="form-control"/>                            
+                     </div>
+                     <div class="col-5">
+                            <span id="uomModelError"></span>
+                     </div>
+              </div>
+
+                <br>
+               <!-- row#3-->
+               <div class="row">
+                     <div class="col-3">
+                            <label>Description</label>
+                     </div>
+                     <div class="col-4">
+   <textarea  id="uomDesc" name="uomDesc" class="form-control"></textarea>                           
+                     </div>
+                     <div class="col-5">
+                            <span id="uomDescError"></span>
+                     </div>
+              </div>
+
+              
+    <input type="submit" value="AddUom" class="btn btn-outline-success"/>
+                </form>
+                    </div>
+                             <!-- card body end -->
+                             
+        <div class="card-footer  bg-success text-white text-center" th:if="${message!=null}">
+        <span  th:text="${message}"></span>
+        </div><!-- card-footer end -->
+                
+             </div>  <!-- card  end -->
+         </div>   <!-- container end -->
+
+         <script type="text/javascript" th:src="@{/myjs/uoms.js}"></script> 
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+        
+</head>
+<body>
+
+
+   <div class="container">
+   <div class="card">
+   
+    <div class="card-header bg-primary text-white text-center">
+      <h3>ShipmentTypeData</h3>
+    </div> <!-- card-header end -->
+    
+     <div class="card-body"> 
+    
+    <table class="table">
+	<tr class="bg-info text-white">
+	<th>Id</th>
+	<th>Model</th>
+	<th>Code</th>
+	<th>Enable</th>
+	<th>Grade</th>
+	<th>Desc</th>
+	<th>Operation</th>
+	</tr>
+	
+	  <tr th:each="ob:${list}">
+	  <td th:text="${ob.id}"></td>
+	  <td th:text="${ob.shipModel}"></td>
+	  <td th:text="${ob.shipCode}"></td>
+	  <td th:text="${ob.enableShip}"></td>
+	  <td th:text="${ob.shipGrade}"></td>
+	  <td th:text="${ob.shipDesc}"></td>
+	  <td>
+	  <a th:href="@{/st/delete(id=${ob.id})}" class="btn btn-danger">Delete</a>|
+	  <a th:href="@{/st/edit(id=${ob.id})}" class="btn btn-success">Edit</a>
+	  </td>
+	  </tr>
+	
+	</table>   
+    </div>
+     <!-- card-body end -->
+    <div class="card-footer bg-success text-white text-center" th:if="${message!=null}">
+    <span th:text="${message}"> </span>
+    </div> <!-- card-footer end -->
+    </div>  <!-- card end -->
+        
+   </div>  
+     <!-- container end -->
+	
+</body>
+</html>
